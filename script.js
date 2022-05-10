@@ -53,11 +53,21 @@ function generatePassword() {
   }
   
   // generate random password with user input
-//   else{
-//     for(var i=0; i<askLength; i++){
-//       var random = Math.floor(Math.random()*
-//     }
-//   }
+  for(var i=0; i<askLength; i++) {
+    if(askLowerCase) {
+      generatePassword.push(String.fromCharCode);
+    }
+    if(askUpperCase) {
+      generatePassword.push(String.fromCharCode);
+    }
+    if(askNumeric) {
+      generatePassword.push(String.fromCharCode);
+    }
+    if(askSpecialChar) {
+      generatePassword.push(String.fromCharCode);
+    }
+  }
+  return generatePassword.join("")
 }
 
 // Write password to the #password input
