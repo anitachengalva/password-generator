@@ -12,7 +12,8 @@ var specialChar = [" ", "!", '"', "#", "$", "%", "&", "'", "(", ")", "*", "+", "
 function generatePassword() {
   var askLength = (prompt("How long would you like your password to be? Input a number of characters between 8-128"));
 
-  // if user input does not fit bounds
+  // if user input does not fit bounds for password length,
+  // number of characters must be between 8 & 128
 while(askLength < 8 || askLength > 128) {
   if(askLength < 8){
     alert("Your input contains too few characters. Please try again.");
@@ -22,6 +23,8 @@ while(askLength < 8 || askLength > 128) {
     alert("Your input contains too many characters. Please try again.");
     var askLength = (prompt("How long would you like your password to be? Input a number of characters between 8-128"));
   }
+  // confirm character length
+  alert(`You chose to have ${askLength} characters`);
 }
 }
 
