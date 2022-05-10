@@ -32,23 +32,26 @@ function generatePassword() {
       var askLength = (prompt("How long would you like your password to be? Input a number of characters between 8-128"));
     }
   }
+
   // confirm character length
   alert(`You chose to have ${askLength} characters`);
 
-  // determine which character types to include
+  // user input determine which character types to include
   var askLowerCase = confirm("Would you like to include lowercase letters in your password?");
   var askUpperCase = confirm("Would you like to include uppercase letters in your password?");
   var askNumeric = confirm("Would you like to include numbers in your password?");
   var askSpecialChar = confirm("Would you like to include special characters in your password?");
-  
-  // at least one character type must be selected
-  if (askLowerCase !== false && askUpperCase !== false && askNumeric !== false && askSpecialChar !== false)
-  {
-    return alert("At least one character type must be selected. Please try again");
-  }
 
-  // confirm selection finished
-  alert("Thank you for your input! Your generated password will appear in the box below.");
+  // must include at least one character type
+  if (!askLowerCase && !askUpperCase && !askNumeric && !askSpecialChar) {
+    alert("At least one character type must be selected. Please try again.");
+    // try character type again if all were previously selected false
+    var askLowerCase = confirm("Would you like to include lowercase letters in your password?");
+    var askUpperCase = confirm("Would you like to include uppercase letters in your password?");
+    var askNumeric = confirm("Would you like to include numbers in your password?");
+    var askSpecialChar = confirm("Would you like to include special characters in your password?");
+  }
+  
 }
 
 // Write password to the #password input
