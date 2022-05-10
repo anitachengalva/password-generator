@@ -7,6 +7,7 @@ var upperCase = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M"
 var numeric = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
 var specialChar = [" ", "!", '"', "#", "$", "%", "&", "'", "(", ")", "*", "+", ",", "-", ".", "/", ";", ":", "<", "=", ">", "?", "@", "[", "]", "^", "_", "`", "{", "|", "}", "~"];
 // password special char according to OWASP Foundation
+var selectionArray = [];
 
 // prompt user for password length
 function generatePassword() {
@@ -51,23 +52,28 @@ function generatePassword() {
     var askNumeric = confirm("Would you like to include numbers in your password?");
     var askSpecialChar = confirm("Would you like to include special characters in your password?");
   }
+
+  var generatePassword = "";
   
-  // generate random password with user input
-  for(var i=0; i<askLength; i++) {
+  // generate random password with user input for characters
+  // if certain characters are chose, append set to array
+  for(var i = 0; i < askLength; i++) {
     if(askLowerCase) {
-      generatePassword.push(String.fromCharCode);
+      selectionArray = selectionArray.concat(lowerCase);
     }
     if(askUpperCase) {
-      generatePassword.push(String.fromCharCode);
+      selectionArray = selectionArray.concat(upperCase);
     }
     if(askNumeric) {
-      generatePassword.push(String.fromCharCode);
+      selectionArray = selectionArray.concat(numeric);
     }
     if(askSpecialChar) {
-      generatePassword.push(String.fromCharCode);
+      selectionArray = selectionArray.concat(specialChar);
     }
+    generatePassword += selectionArray[Math.floor(Math.random() * (selectionArray.length))];
   }
-  return generatePassword.join("")
+  return generatePassword
+  console.log(generatePassword);
 }
 
 // Write password to the #password input
