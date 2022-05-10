@@ -52,6 +52,12 @@ function generatePassword() {
     var askSpecialChar = confirm("Would you like to include special characters in your password?");
   }
   
+  // generate random password with user input
+//   else{
+//     for(var i=0; i<askLength; i++){
+//       var random = Math.floor(Math.random()*
+//     }
+//   }
 }
 
 // Write password to the #password input

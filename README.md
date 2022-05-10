@@ -19,7 +19,7 @@ https://anitachengalva.github.io/password-generator/
 
 ## Screenshot
 
-![Password Generator Screenshot](link)
+![Password Generator Screenshot](./img/screenshot.png)
 
 
 ## Contact Me
