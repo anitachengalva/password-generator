@@ -15,7 +15,15 @@ function generatePassword() {
   // if user input does not fit bounds for password length,
   // number of characters must be between 8 & 128
   while(askLength < 8 || askLength > 128) {
-    if(askLength < 8){
+    if(askLength < 0){
+      alert("It is impossible to have a password of negative length! Please try again.");
+      var askLength = (prompt("How long would you like your password to be? Input a number of characters between 8-128"));
+    }
+    if(askLength == 0){
+      alert("A password without a length is invalid. Please try again.");
+      var askLength = (prompt("How long would you like your password to be? Input a number of characters between 8-128"));
+    }
+    if(0 < askLength < 8){
       alert("Your input contains too few characters. Please try again.");
       var askLength = (prompt("How long would you like your password to be? Input a number of characters between 8-128"));
     }
@@ -32,9 +40,16 @@ function generatePassword() {
   var askUpperCase = confirm("Would you like to include uppercase letters in your password?");
   var askNumeric = confirm("Would you like to include numbers in your password?");
   var askSpecialChar = confirm("Would you like to include special characters in your password?");
+  
+  // at least one character type must be selected
+  if (askLowerCase !== false && askUpperCase !== false && askNumeric !== false && askSpecialChar !== false)
+  {
+    return alert("At least one character type must be selected. Please try again");
+  }
+
+  // confirm selection finished
+  alert("Thank you for your input! Your generated password will appear in the box below.");
 }
-
-
 
 // Write password to the #password input
 function writePassword() {
