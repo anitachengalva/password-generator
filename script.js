@@ -8,6 +8,23 @@ var numeric = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
 var specialChar = [" ", "!", '"', "#", "$", "%", "&", "'", "(", ")", "*", "+", ",", "-", ".", "/", ";", ":", "<", "=", ">", "?", "@", "[", "]", "^", "_", "`", "{", "|", "}", "~"];
 // password special char according to OWASP Foundation
 
+// prompt user for password length
+function generatePassword() {
+  var askLength = (prompt("How long would you like your password to be? Input a number of characters between 8-128"));
+
+  // if user input does not fit bounds
+while(askLength < 8 || askLength > 128) {
+  if(askLength < 8){
+    alert("Your input contains too few characters. Please try again.");
+    var askLength = (prompt("How long would you like your password to be? Input a number of characters between 8-128"));
+  }
+  if(askLength > 128){
+    alert("Your input contains too many characters. Please try again.");
+    var askLength = (prompt("How long would you like your password to be? Input a number of characters between 8-128"));
+  }
+}
+}
+
 // Write password to the #password input
 function writePassword() {
   var password = generatePassword();
